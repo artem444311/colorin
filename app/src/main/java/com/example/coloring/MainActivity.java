@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.coloring.activity.Coloring;
+
 public class MainActivity extends AppCompatActivity {
     private class coloring {
         Coloring coloring;
