@@ -1,8 +1,8 @@
 package com.example.coloring;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coloring.activity.Coloring;
 
@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
         public void getColor() {
 
         }
+
+        уцвцйв
     }
 
 
