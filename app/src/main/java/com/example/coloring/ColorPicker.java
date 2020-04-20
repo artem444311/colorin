@@ -1,29 +1,22 @@
 package com.example.coloring;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class ColorPicker extends View {
+public class ColorPicker extends View implements ColorPicker111 {
 
-    private final Context context;
-
-    public ColorPicker(Context context) {
-        super(context);
-        this.context = context;
-    }
-
-    private float				cx;
-    private float				cy;
-    private int					size;
+public Paint p_color	= new Paint(Paint.ANTI_ALIAS_FLAG);
+    private float cx;
+    private float cy;
+    private int size;
+    private float rad_1;
 
     public ColorPicker(Context context) {
-        this(context, null, context1);
-        this.context = context;
-    }
-
-    public ColorPicker(Context context, AttributeSet attrs, Context context1) {
-        this(context, attrs, 0);
+        this(context, null);
     }
 
     public ColorPicker(Context context, AttributeSet attrs, int defStyle) {
@@ -35,13 +28,8 @@ public class ColorPicker extends View {
 
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int mWidth = measure(widthMeasureSpec);
-        int mHeight = measure(heightMeasureSpec);
-        size = Math.min(mWidth, mHeight);
-        setMeasuredDimension(size, size);
-
+    public ColorPicker(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
     private int measure(int measureSpec) {
@@ -53,17 +41,46 @@ public class ColorPicker extends View {
         return result;
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int mWidth = measure(widthMeasureSpec);
+        int mHeight = measure(heightMeasureSpec);
+        size = Math.min(mWidth, mHeight);
+        setMeasuredDimension(size, size);
+
+
+    }
+
     private void calculateSizes() {
         cx = size * 0.5f;
         cy = cx;
+
 
     }
 
     @Override
     protected void onDraw(Canvas c) {
         super.onDraw(c);
-        c.drawColor(Color.BLUE);
+        c.drawCircle(cx, cy, rad_1, p_color);
+    }
+
+    private void calculateSizes(float rad_1) {
+        cx = size * 0.5f;
+        cy = cx;
+        rad_1 = size * 0.44f;
+
+        p_color.setStrokeWidth(size * 0.08f);
 
     }
+
 }
-}
+
+
+
+
+
+
+
+
+
+
